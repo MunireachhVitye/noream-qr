@@ -1,0 +1,354 @@
+a.blue:hover, button.blue:hover{
+  background: blue;
+  color: white;
+  cursor: pointer;
+}
+
+a.blue, button.blue{
+  color: blue;
+  cursor: pointer;
+}
+
+a.no_under{
+  text-decoration: none;
+}
+
+body.light-mode a.black:hover, body.light-mode button.black:hover{
+  background: black;
+  color: white;
+  cursor: pointer;
+}
+body.light-mode a.black, body.light-mode button.black{
+  color: black;
+  cursor: pointer;
+}
+
+a.yellow:hover, button.yellow:hover{
+  background: yellow;
+  color: white;
+  cursor: pointer;
+}
+a.yellow, button.yellow{
+  color: yellow;
+  cursor: pointer;
+}
+
+a.red:hover, button.red:hover{
+  background: red;
+  color: white;
+  cursor: pointer;
+}
+a.red, button.red{
+  color: red;
+  cursor: pointer;
+}
+
+a.green:hover, button.green:hover{
+  background: green;
+  color: white;
+  cursor: pointer;
+}
+a.green, button.green{
+  color: green;
+  cursor: pointer;
+}
+
+a.cyan:hover, button.cyan:hover{
+  background: cyan;
+  color: white;
+  cursor: pointer;
+}
+a.cyan, button.cyan{
+  color: cyan;
+  cursor: pointer;
+}
+
+a.warning:hover, button.warning:hover{
+  background: black;
+  color: yellow;
+  cursor: pointer;
+}
+a.warning, button.warning{
+  color: black;
+  cursor: pointer;
+}
+
+a.danger:hover, button.danger:hover{
+  background: red;
+  color: white;
+  cursor: pointer;
+}
+a.danger, button.danger{
+  color: black;
+  cursor: pointer;
+}
+/*Shows word in Mono*/
+.mono {
+  /*font-family: consolas;*/
+  font-family:'Lucida Console', monospace
+}
+/*Shows word as Bold*/
+.bold {
+  font-weight: bold;
+}
+html {
+  scroll-behavior: smooth;
+}
+html, body {
+  font-family: mwf-segoe, UI,Segoe,sans-serif;
+  line-height: normal;
+  -webkit-font-smoothing: antialiased;
+}
+body {
+  margin: auto;
+  max-width: 38rem;
+  padding: 2rem;
+}
+body.dark-mode {
+  background-color: #333;
+  color: #fff;
+}
+body.light-mode {
+  background-color: #fff;
+  color: #333;
+}
+body {
+  background-color: #fff;
+  color: #333;
+}
+button.btn, a.btn {
+  font-size: 1em;
+  cursor: pointer;
+  /*Do not remove Comment*/
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  box-sizing: border-box;
+  position: relative;
+  outline: none;
+  border: none;
+  white-space: nowrap;
+  font-size: inherit;
+  font-family: segoe-vf,sans-serif;
+  font-weight: 400;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-overflow: ellipsis;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+  padding: 0 1.5em .1em;
+  border-radius: .33em;
+  min-width: 8em;
+  min-height: 2.25em;
+  cursor: pointer;
+  background-color: var(--theme-button-bg);
+  color: var(--theme-button-fg);
+  box-shadow: 0 0.7565932872px 2px rgb(0 0 0 / 15%);
+  transition: background-color .4s cubic-bezier(.165,.84,.44,1) 0ms,color .4s cubic-bezier(.165,.84,.44,1) 0ms,box-shadow .4s cubic-bezier(.165,.84,.44,1) 0ms;
+  line-height: 1.1;
+}
+button.btn.border, a.btn.border{
+  border: 2px solid;
+}
+button:hover, a.btn:hover {
+  text-decoration: none;
+}
+
+/*Dark Mode*/
+body.dark-mode a.black:hover, body.dark-mode button.black:hover{
+  background: white;
+  color: gray;
+  cursor: pointer;
+}
+body.dark-mode a.black, body.dark-mode button.black{
+  color: white;
+  cursor: pointer;
+}
+
+a.dark-yellow:hover, button.dark-yellow:hover{
+  background: yellow;
+  color: white;
+  cursor: pointer;
+}
+a.dark-yellow, button.dark-yellow{
+  color: yellow;
+  cursor: pointer;
+}
+
+a.dark-red:hover, button.dark-red:hover{
+  background: red;
+  color: white;
+  cursor: pointer;
+}
+a.dark-red, button.dark-red{
+  color: red;
+  cursor: pointer;
+}
+
+a.dark-green:hover, button.dark-green:hover{
+  background: green;
+  color: white;
+  cursor: pointer;
+}
+a.dark-green, button.dark-green{
+  color: green;
+  cursor: pointer;
+}
+
+a.dark-cyan:hover, button.dark-cyan:hover{
+  background: cyan;
+  color: white;
+  cursor: pointer;
+}
+a.dark-cyan, button.dark-cyan{
+  color: cyan;
+  cursor: pointer;
+}
+
+a.dark-warning:hover, button.dark-warning:hover{
+  background: black;
+  color: yellow;
+  cursor: pointer;
+}
+a.dark-warning, button.dark-warning{
+  color: black;
+  cursor: pointer;
+}
+
+a.dark-danger:hover, button.dark-danger:hover{
+  background: red;
+  color: white;
+  cursor: pointer;
+}
+a.dark-danger, button.dark-danger{
+  color: black;
+  cursor: pointer;
+}
+html.dark, body.dark {
+  font-family: mwf-segoe,Segoe UI,Segoe,sans-serif;
+  color: #fff;
+  background-color: #333;
+  line-height: normal;
+  -webkit-font-smoothing: antialiased;
+}
+
+button:hover, a.btn:hover, a.btn {
+  text-decoration: none;
+}
+
+/*
+This is the schenanigans I sacrificed hours to add in.
+*/
+/* Tooltip container */
+    .tooltip {
+      position: relative;
+      display: inline-block;
+  }
+
+  /* Tooltip text */
+  .tooltip .tooltiptext {
+      display: none;
+      position: absolute;
+      background-color: #f9f9f9;
+      color: #333;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 15px;
+      z-index: 1;
+  }
+
+  .tooltip:hover .tooltiptext {
+      display: block;
+  }
+/* Alert Animations*/
+.alert {
+  display: none; /* Hidden by default */
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  justify-content: center;
+  align-items: center;
+}
+
+.alert-content {
+  padding: 20px;
+  border-radius: 5px;
+  text-align: center;
+}
+
+body.dark-mode .alert-content {
+  background-color: #444;
+  color: #fff;
+}
+body.light-mode .alert-content {
+  background-color: #fff;
+  color: #333;
+}
+
+/*
+Cloned from idv-chats.web.app CSS which I own.
+*/
+/*For Open and Close Boxes*/
+details {
+  border: 1px solid #aaa;
+  border-radius: 4px;
+  padding: 0.5em 0.5em 0;
+}
+
+summary {
+  font-weight: bold;
+  margin: -0.5em -0.5em 0;
+  padding: 0.5em;
+}
+
+details[open] {
+  padding: 0.5em;
+}
+
+details[open] summary {
+  border-bottom: 1px solid #aaa;
+  margin-bottom: 0.5em;
+}
+.pointer{
+  cursor: pointer;
+}
+
+
+/*
+    Additional CSS for the QR Styling
+*/
+        /*QR*/
+#container {
+    text-align: center;
+    margin: 0;
+  }
+  
+  #qr-canvas {
+    margin: auto;
+    width: calc(100% - 20px);
+    max-width: 400px;
+  }
+  
+  #btn-scan-qr {
+    cursor: pointer;
+  }
+  
+  #btn-scan-qr img {
+    height: 10em;
+    padding: 15px;
+    margin: 15px;
+    background: white;
+  }
+  
+  #qr-result {
+    font-size: 1.2em;
+    margin: 20px auto;
+    padding: 20px;
+    max-width: 700px;
+    background-color: white;
+  }

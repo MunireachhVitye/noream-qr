@@ -1,0 +1,13 @@
+If you're vityea.
+Here's the shit you need to get it up and running
+npm run start 
+To start
+
+Or this shit:
+  "scripts": {
+    "start": "electron .",
+    "dist": "electron-builder --win",
+    "dist:mac": "electron-builder --mac",
+    "dist:all": "electron-builder -mw",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },

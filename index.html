@@ -1,0 +1,89 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>Noream QR</title>
+    <link href="./style.css" rel="stylesheet" type="text/css" />
+    <script src="./qr_packed.js"></script>
+</head>
+<body class="light-mode">
+<h1>Welcome Sir Noream.</h1>
+<a href="./credits.html" class="black">Credits</a>
+<hr>
+<a id="btn-scan-qr">
+        <img src="./qr_icon.svg" alt="qr_icon">
+      </a>
+      <canvas hidden="" id="qr-canvas"></canvas>
+
+      <div id="qr-result" hidden="">
+        <span id="outputData"></span>
+      </div>
+      <script>
+        var selfs = new URLSearchParams(location.search);
+        const qrcody = window.qrcode;
+        
+        const video = document.createElement("video");
+        const canvasElement = document.getElementById("qr-canvas");
+        const canvas = canvasElement.getContext("2d");
+        
+        const qrResult = document.getElementById("qr-result");
+        const outputData = document.getElementById("outputData");
+        const btnScanQR = document.getElementById("btn-scan-qr");
+        
+        let scanning = false;
+        
+        function cameraDisable(){
+            scanning = false;
+        
+            video.srcObject.getTracks().forEach((track) => {
+              track.stop();
+            });
+        
+            qrResult.hidden = false;
+            canvasElement.hidden = true;
+            btnScanQR.hidden = false;
+        }
+        
+        qrcody.callback = (res) => {
+            cameraDisable();
+            outputData.innerHTML = "<p>Data:<br><textarea style='width:100%;height:100px;' readonly>"+res+"</textarea></p>";
+        };
+        
+        btnScanQR.onclick = () => {
+          navigator.mediaDevices
+            .getUserMedia({ video: { facingMode: "environment" } })
+            .then(function (stream) {
+              scanning = true;
+              qrResult.hidden = true;
+              btnScanQR.hidden = true;
+              canvasElement.hidden = false;
+              video.setAttribute("playsinline", true); // required to tell iOS safari we don't want fullscreen
+              video.srcObject = stream;
+              video.play();
+              tick();
+              scan();
+            });
+        };
+        
+        function tick() {
+          canvasElement.height = video.videoHeight;
+          canvasElement.width = video.videoWidth;
+          canvas.drawImage(video, 0, 0, canvasElement.width, canvasElement.height);
+        
+          scanning && requestAnimationFrame(tick);
+        }
+        
+        function scan() {
+          try {
+            qrcody.decode();
+          } catch (e) {
+            setTimeout(scan, 300);
+          }
+        }
+        </script>
+<hr>
+<footer>Copyright 2026 - Powered by vityea.us.kg</footer>
+</body>
+</html>
