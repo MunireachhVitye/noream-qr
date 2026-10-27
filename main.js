@@ -1,4 +1,4 @@
-const { app, BrowserWindow, systemPreferences } = require('electron');
+const { app, BrowserWindow, systemPreferences, ipcMain, shell } = require('electron');
 const path = require('path');
 
 //Pretty self-explanatory. This is for the camera API.
@@ -53,7 +53,12 @@ const createWindow = () => {
 app.whenReady().then(async () => {
   await checkCameraPermission();
   createWindow();
-
+ipcMain.handle('open-in-browser', async (_event, url) => {
+    if (typeof url !== 'string' || !/^https?:\/\//i.test(url)) {
+      throw new Error('Invalid URL');
+    }
+    await shell.openExternal(url);
+  });
   app.on('activate', () => {
     if (BrowserWindow.getAllWindows().length === 0) createWindow();
   });

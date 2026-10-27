@@ -7,6 +7,7 @@
 	<title>Noream QR</title>
     <link href="./style.css" rel="stylesheet" type="text/css" />
     <script src="./qr_packed.js"></script>
+
 </head>
 <body class="light-mode">
 <h1>Welcome Sir Noream.</h1>
@@ -16,7 +17,7 @@
         <img src="./qr_icon.svg" alt="qr_icon">
       </a>
       <canvas hidden="" id="qr-canvas"></canvas>
-
+      <button id="stopScan" hidden="" onclick='cameraDisable()'>Stop Scanning</button>
       <div id="qr-result" hidden="">
         <span id="outputData"></span>
       </div>
@@ -31,7 +32,8 @@
         const qrResult = document.getElementById("qr-result");
         const outputData = document.getElementById("outputData");
         const btnScanQR = document.getElementById("btn-scan-qr");
-        
+        const btnStopScan = document.getElementById("stopScan");
+
         let scanning = false;
         
         function cameraDisable(){
@@ -42,13 +44,15 @@
             });
         
             qrResult.hidden = false;
+            btnStopScan.hidden = true;
+            outputData.innerHTML = "";
             canvasElement.hidden = true;
             btnScanQR.hidden = false;
         }
         
         qrcody.callback = (res) => {
             cameraDisable();
-            outputData.innerHTML = "<p>Data:<br><textarea style='width:100%;height:100px;' readonly>"+res+"</textarea></p>";
+            outputData.innerHTML = "<p>Data & Actions:<br>"+"<button onclick='copyText()'>Copy</button>"+linkDetect(res)+"<br><textarea style='width:100%;height:100px;' id='myInput' readonly>"+res+"</textarea></p>";
         };
         
         btnScanQR.onclick = () => {
@@ -57,6 +61,7 @@
             .then(function (stream) {
               scanning = true;
               qrResult.hidden = true;
+              btnStopScan.hidden = false;
               btnScanQR.hidden = true;
               canvasElement.hidden = false;
               video.setAttribute("playsinline", true); // required to tell iOS safari we don't want fullscreen
@@ -82,6 +87,27 @@
             setTimeout(scan, 300);
           }
         }
+        function copyText() {
+  // Get the text field
+  var copyText = document.getElementById("myInput");
+
+  // Select the text field
+  copyText.select();
+  copyText.setSelectionRange(0, 99999); // For mobile devices
+
+  // Copy the text inside the text field to the clipboard
+  navigator.clipboard.writeText(copyText.value)
+    .then(() => {
+      alert("Text copied to clipboard");
+    })
+    .catch(err => {
+      console.error("Failed to copy text: ", err);
+    });
+}
+function linkDetect(res){
+  if (res.startsWith("https://") || res.startsWith("http://")) return "<button onclick=\"electronAPI.openInBrowser('"+res+"')\">Open in Browser</button>";
+  else return "";
+}
         </script>
 <hr>
 <footer>Copyright 2026 - Powered by vityea.us.kg</footer>

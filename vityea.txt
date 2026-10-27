@@ -11,3 +11,5 @@ Or this shit:
     "dist:all": "electron-builder -mw",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+
+If you're still snooping around and this gets deployed too, enjoy yourselves.

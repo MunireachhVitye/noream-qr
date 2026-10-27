@@ -4,7 +4,7 @@
     "electron-builder": "^26.15.3"
   },
   "name": "noream-qr",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Noream QR. The only QR that won't snitch if you watch AhCraenFans.",
   "build": {
     "appId": "com.vityea.noreamqr",
